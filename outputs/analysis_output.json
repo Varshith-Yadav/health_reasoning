@@ -1,0 +1,534 @@
+{
+  "generated_at": "2026-04-26T21:49:39.832116Z",
+  "system_version": "2.0.0",
+  "results": [
+    {
+      "user_id": "USR001",
+      "user_name": "Arjun",
+      "total_patterns_found": 3,
+      "patterns": [
+        {
+          "pattern_id": "bce16298-af5e-4c4f-92be-f56eb4d16a19",
+          "user_id": "USR001",
+          "pattern_type": "progression",
+          "title": "high stress shows compounding symptom progression",
+          "explanation": "Symptoms emerged in sequence after high stress: stomach pain, fatigue, headache.",
+          "root_cause": "high stress",
+          "outcome": "stomach pain, fatigue, headache",
+          "sessions_involved": [
+            "USR001_S04",
+            "USR001_S05",
+            "USR001_S06",
+            "USR001_S07",
+            "USR001_S08",
+            "USR001_S09"
+          ],
+          "confidence": "high",
+          "confidence_score": 0.86,
+          "confidence_justification": "support=3/3, effect=0.85, direction=1.00, median lag 7d.",
+          "reasoning_trace": {
+            "steps": [
+              "Anchored earliest cause onset.",
+              "Ordered downstream symptoms by first occurrence.",
+              "Validated staggered onset over multiple weeks."
+            ],
+            "evidence": [
+              {
+                "session_id": "USR001_S04",
+                "timestamp": "2026-01-28T00:42:00",
+                "summary": "stomach pain appears after high stress",
+                "contribution": "First seen 0 day(s) from cause onset."
+              },
+              {
+                "session_id": "USR001_S05",
+                "timestamp": "2026-02-04T15:22:00",
+                "summary": "fatigue appears after high stress",
+                "contribution": "First seen 7 day(s) from cause onset."
+              },
+              {
+                "session_id": "USR001_S06",
+                "timestamp": "2026-02-14T11:05:00",
+                "summary": "headache appears after high stress",
+                "contribution": "First seen 17 day(s) from cause onset."
+              }
+            ],
+            "rejected_hypotheses": []
+          },
+          "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
+        },
+        {
+          "pattern_id": "3d71d9db-92bc-4f71-a00e-5f1132b771ab",
+          "user_id": "USR001",
+          "pattern_type": "repeated_trigger",
+          "title": "late eating repeatedly precedes stomach pain",
+          "explanation": "stomach pain recurs after late eating within 0 day(s) across sessions.",
+          "root_cause": "late eating",
+          "outcome": "stomach pain",
+          "sessions_involved": [
+            "USR001_S01",
+            "USR001_S04",
+            "USR001_S07",
+            "USR001_S09"
+          ],
+          "confidence": "very_high",
+          "confidence_score": 0.92,
+          "confidence_justification": "support=4/4, effect=1.00, direction=1.00, median lag 0d.",
+          "reasoning_trace": {
+            "steps": [
+              "Matched repeated cause-before-symptom episodes in 0-7 day window.",
+              "Validated directionality against reverse-order mentions."
+            ],
+            "evidence": [
+              {
+                "session_id": "USR001_S01",
+                "timestamp": "2026-01-05T23:14:00",
+                "summary": "Immediate trigger: late eating -> stomach pain",
+                "contribution": "Gap 0 day(s), cause before symptom."
+              },
+              {
+                "session_id": "USR001_S04",
+                "timestamp": "2026-01-28T00:42:00",
+                "summary": "Immediate trigger: late eating -> stomach pain",
+                "contribution": "Gap 0 day(s), cause before symptom."
+              },
+              {
+                "session_id": "USR001_S07",
+                "timestamp": "2026-02-23T23:55:00",
+                "summary": "Immediate trigger: late eating -> stomach pain",
+                "contribution": "Gap 0 day(s), cause before symptom."
+              },
+              {
+                "session_id": "USR001_S09",
+                "timestamp": "2026-03-19T10:15:00",
+                "summary": "Immediate trigger: late eating -> stomach pain",
+                "contribution": "Gap 0 day(s), cause before symptom."
+              }
+            ],
+            "rejected_hypotheses": []
+          },
+          "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
+        },
+        {
+          "pattern_id": "bdb15192-fe3d-4566-8f0e-6cbbf5a6d415",
+          "user_id": "USR001",
+          "pattern_type": "repeated_trigger",
+          "title": "low water intake repeatedly precedes headache",
+          "explanation": "headache recurs after low water intake within 0 day(s) across sessions.",
+          "root_cause": "low water intake",
+          "outcome": "headache",
+          "sessions_involved": [
+            "USR001_S02",
+            "USR001_S08"
+          ],
+          "confidence": "medium",
+          "confidence_score": 0.73,
+          "confidence_justification": "support=2/4, effect=1.00, direction=1.00, median lag 0d.",
+          "reasoning_trace": {
+            "steps": [
+              "Matched repeated cause-before-symptom episodes in 0-7 day window.",
+              "Validated directionality against reverse-order mentions."
+            ],
+            "evidence": [
+              {
+                "session_id": "USR001_S02",
+                "timestamp": "2026-01-12T10:30:00",
+                "summary": "Immediate trigger: low water intake -> headache",
+                "contribution": "Gap 0 day(s), cause before symptom."
+              },
+              {
+                "session_id": "USR001_S08",
+                "timestamp": "2026-03-08T16:40:00",
+                "summary": "Immediate trigger: low water intake -> headache",
+                "contribution": "Gap 0 day(s), cause before symptom."
+              }
+            ],
+            "rejected_hypotheses": []
+          },
+          "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
+        }
+      ]
+    },
+    {
+      "user_id": "USR002",
+      "user_name": "Meera",
+      "total_patterns_found": 4,
+      "patterns": [
+        {
+          "pattern_id": "ee397779-657d-40f4-a02d-168f835b46c2",
+          "user_id": "USR002",
+          "pattern_type": "dose_response",
+          "title": "dairy intake shows dose-response with acne",
+          "explanation": "acne improved when dairy intake was reduced and recurred after re-exposure.",
+          "root_cause": "dairy intake",
+          "outcome": "acne",
+          "sessions_involved": [
+            "USR002_S02",
+            "USR002_S03",
+            "USR002_S04",
+            "USR002_S07"
+          ],
+          "confidence": "very_high",
+          "confidence_score": 0.91,
+          "confidence_justification": "support=3/3, effect=0.95, direction=1.00, median lag 0d.",
+          "reasoning_trace": {
+            "steps": [
+              "Detected baseline repeated trigger.",
+              "Observed improvement after exposure reduction.",
+              "Observed rebound after re-exposure."
+            ],
+            "evidence": [
+              {
+                "session_id": "USR002_S04",
+                "timestamp": "2026-02-01T10:00:00",
+                "summary": "reduced dairy intake initiated",
+                "contribution": "Reduction phase."
+              },
+              {
+                "session_id": "USR002_S04",
+                "timestamp": "2026-02-01T10:00:00",
+                "summary": "Symptoms improved after reduction",
+                "contribution": "Response to lower exposure."
+              },
+              {
+                "session_id": "USR002_S07",
+                "timestamp": "2026-02-27T11:20:00",
+                "summary": "acne returned after re-exposure",
+                "contribution": "Rebound confirms dose dependency."
+              }
+            ],
+            "rejected_hypotheses": []
+          },
+          "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
+        },
+        {
+          "pattern_id": "f487e329-643d-49da-92d9-370fc402a68e",
+          "user_id": "USR002",
+          "pattern_type": "intervention_success",
+          "title": "increased calories likely improved hair fall",
+          "explanation": "Improvement followed increased calories, with fewer symptom mentions in the next 2-3 weeks compared with the prior baseline.",
+          "root_cause": "increased calories",
+          "outcome": "hair fall",
+          "sessions_involved": [
+            "USR002_S06",
+            "USR002_S08",
+            "USR002_S09"
+          ],
+          "confidence": "medium",
+          "confidence_score": 0.72,
+          "confidence_justification": "support=2/6, effect=1.00, direction=1.00, median lag 10d.",
+          "reasoning_trace": {
+            "steps": [
+              "Compared symptom density before vs after intervention.",
+              "Required explicit improvement mention after intervention start."
+            ],
+            "evidence": [
+              {
+                "session_id": "USR002_S08",
+                "timestamp": "2026-03-07T22:15:00",
+                "summary": "Intervention: increased calories",
+                "contribution": "Started before improvement window."
+              },
+              {
+                "session_id": "USR002_S08",
+                "timestamp": "2026-03-07T22:15:00",
+                "summary": "Improvement reported",
+                "contribution": "Observed after intervention."
+              },
+              {
+                "session_id": "USR002_S09",
+                "timestamp": "2026-03-18T09:40:00",
+                "summary": "Improvement reported",
+                "contribution": "Observed after intervention."
+              }
+            ],
+            "rejected_hypotheses": []
+          },
+          "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
+        },
+        {
+          "pattern_id": "215fb395-3c3f-4414-868b-e4a9b31aa43a",
+          "user_id": "USR002",
+          "pattern_type": "progression",
+          "title": "calorie restriction shows compounding symptom progression",
+          "explanation": "Symptoms emerged in sequence after calorie restriction: dizziness, fatigue, hair fall.",
+          "root_cause": "calorie restriction",
+          "outcome": "dizziness, fatigue, hair fall",
+          "sessions_involved": [
+            "USR002_S01",
+            "USR002_S02",
+            "USR002_S05",
+            "USR002_S06",
+            "USR002_S08",
+            "USR002_S09"
+          ],
+          "confidence": "high",
+          "confidence_score": 0.81,
+          "confidence_justification": "support=3/4, effect=0.85, direction=1.00, median lag 32d.",
+          "reasoning_trace": {
+            "steps": [
+              "Anchored earliest cause onset.",
+              "Ordered downstream symptoms by first occurrence.",
+              "Validated staggered onset over multiple weeks."
+            ],
+            "evidence": [
+              {
+                "session_id": "USR002_S01",
+                "timestamp": "2026-01-08T08:30:00",
+                "summary": "dizziness appears after calorie restriction",
+                "contribution": "First seen 0 day(s) from cause onset."
+              },
+              {
+                "session_id": "USR002_S05",
+                "timestamp": "2026-02-10T07:55:00",
+                "summary": "fatigue appears after calorie restriction",
+                "contribution": "First seen 32 day(s) from cause onset."
+              },
+              {
+                "session_id": "USR002_S06",
+                "timestamp": "2026-02-19T20:30:00",
+                "summary": "hair fall appears after calorie restriction",
+                "contribution": "First seen 42 day(s) from cause onset."
+              }
+            ],
+            "rejected_hypotheses": []
+          },
+          "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
+        },
+        {
+          "pattern_id": "9bf2779c-2174-4d62-bb53-71cefbc6017b",
+          "user_id": "USR002",
+          "pattern_type": "delayed_effect",
+          "title": "calorie restriction may cause delayed hair fall",
+          "explanation": "hair fall appears with a lag after calorie restriction (median 30 days).",
+          "root_cause": "calorie restriction",
+          "outcome": "hair fall",
+          "sessions_involved": [
+            "USR002_S01",
+            "USR002_S05",
+            "USR002_S06",
+            "USR002_S08",
+            "USR002_S09"
+          ],
+          "confidence": "high",
+          "confidence_score": 0.75,
+          "confidence_justification": "support=2/3, effect=0.67, direction=1.00, median lag 36d.",
+          "reasoning_trace": {
+            "steps": [
+              "Measured lagged pair occurrences in 14-84 day window.",
+              "Checked that delayed signal is stronger than immediate co-occurrence."
+            ],
+            "evidence": [
+              {
+                "session_id": "USR002_S08",
+                "timestamp": "2026-03-07T22:15:00",
+                "summary": "Delayed effect: calorie restriction -> hair fall",
+                "contribution": "Gap 25 day(s), cause before symptom."
+              },
+              {
+                "session_id": "USR002_S09",
+                "timestamp": "2026-03-18T09:40:00",
+                "summary": "Delayed effect: calorie restriction -> hair fall",
+                "contribution": "Gap 36 day(s), cause before symptom."
+              }
+            ],
+            "rejected_hypotheses": []
+          },
+          "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
+        }
+      ]
+    },
+    {
+      "user_id": "USR003",
+      "user_name": "Priya",
+      "total_patterns_found": 4,
+      "patterns": [
+        {
+          "pattern_id": "53a80971-288e-45b3-9b0a-72458621ab4b",
+          "user_id": "USR003",
+          "pattern_type": "intervention_success",
+          "title": "added protein lunch likely improved fatigue",
+          "explanation": "Improvement followed added protein lunch, with fewer symptom mentions in the next 2-3 weeks compared with the prior baseline.",
+          "root_cause": "added protein lunch",
+          "outcome": "fatigue",
+          "sessions_involved": [
+            "USR003_S01",
+            "USR003_S03",
+            "USR003_S04",
+            "USR003_S06"
+          ],
+          "confidence": "medium",
+          "confidence_score": 0.72,
+          "confidence_justification": "support=1/5, effect=1.00, direction=1.00, median lag 0d.",
+          "reasoning_trace": {
+            "steps": [
+              "Compared symptom density before vs after intervention.",
+              "Required explicit improvement mention after intervention start."
+            ],
+            "evidence": [
+              {
+                "session_id": "USR003_S06",
+                "timestamp": "2026-02-20T13:00:00",
+                "summary": "Intervention: added protein lunch",
+                "contribution": "Started before improvement window."
+              },
+              {
+                "session_id": "USR003_S06",
+                "timestamp": "2026-02-20T13:00:00",
+                "summary": "Improvement reported",
+                "contribution": "Observed after intervention."
+              }
+            ],
+            "rejected_hypotheses": []
+          },
+          "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
+        },
+        {
+          "pattern_id": "6be821fb-740f-429e-af2b-91d0e55cab25",
+          "user_id": "USR003",
+          "pattern_type": "multi_factor",
+          "title": "cramps has multi-factor pattern (sleep deprivation + high stress)",
+          "explanation": "cramps aligns with both sleep deprivation and high stress; sleep deprivation still appears as an independent contributor.",
+          "root_cause": "sleep deprivation; high stress",
+          "outcome": "cramps",
+          "sessions_involved": [
+            "USR003_S02",
+            "USR003_S05",
+            "USR003_S08",
+            "USR003_S09"
+          ],
+          "confidence": "high",
+          "confidence_score": 0.86,
+          "confidence_justification": "support=3/4, effect=0.88, direction=1.00, median lag 5d.",
+          "reasoning_trace": {
+            "steps": [
+              "Computed preceding factors for each symptom episode.",
+              "Compared episodes with partial factor overlap."
+            ],
+            "evidence": [
+              {
+                "session_id": "USR003_S02",
+                "timestamp": "2026-01-14T21:00:00",
+                "summary": "cramps with factors ['high carb low protein lunch', 'high stress', 'sleep deprivation']",
+                "contribution": "Used to isolate independent factors."
+              },
+              {
+                "session_id": "USR003_S05",
+                "timestamp": "2026-02-11T22:30:00",
+                "summary": "cramps with factors ['high stress', 'late night screens', 'sleep deprivation']",
+                "contribution": "Used to isolate independent factors."
+              },
+              {
+                "session_id": "USR003_S08",
+                "timestamp": "2026-03-10T21:45:00",
+                "summary": "cramps with factors ['late night screens', 'sleep deprivation']",
+                "contribution": "Used to isolate independent factors."
+              },
+              {
+                "session_id": "USR003_S09",
+                "timestamp": "2026-03-16T10:20:00",
+                "summary": "cramps with factors ['high stress', 'late night screens', 'sleep deprivation']",
+                "contribution": "Used to isolate independent factors."
+              }
+            ],
+            "rejected_hypotheses": []
+          },
+          "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
+        },
+        {
+          "pattern_id": "47203eb7-af57-4e2d-9af6-7df746dbad85",
+          "user_id": "USR003",
+          "pattern_type": "progression",
+          "title": "late night screens shows compounding symptom progression",
+          "explanation": "Symptoms emerged in sequence after late night screens: fatigue, cramps, anxiety.",
+          "root_cause": "late night screens",
+          "outcome": "fatigue, cramps, anxiety",
+          "sessions_involved": [
+            "USR003_S04",
+            "USR003_S05",
+            "USR003_S06",
+            "USR003_S07",
+            "USR003_S08",
+            "USR003_S09"
+          ],
+          "confidence": "high",
+          "confidence_score": 0.85,
+          "confidence_justification": "support=3/3, effect=0.85, direction=1.00, median lag 8d.",
+          "reasoning_trace": {
+            "steps": [
+              "Anchored earliest cause onset.",
+              "Ordered downstream symptoms by first occurrence.",
+              "Validated staggered onset over multiple weeks."
+            ],
+            "evidence": [
+              {
+                "session_id": "USR003_S04",
+                "timestamp": "2026-02-03T19:45:00",
+                "summary": "fatigue appears after late night screens",
+                "contribution": "First seen 0 day(s) from cause onset."
+              },
+              {
+                "session_id": "USR003_S05",
+                "timestamp": "2026-02-11T22:30:00",
+                "summary": "cramps appears after late night screens",
+                "contribution": "First seen 8 day(s) from cause onset."
+              },
+              {
+                "session_id": "USR003_S07",
+                "timestamp": "2026-02-28T20:00:00",
+                "summary": "anxiety appears after late night screens",
+                "contribution": "First seen 25 day(s) from cause onset."
+              }
+            ],
+            "rejected_hypotheses": []
+          },
+          "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
+        },
+        {
+          "pattern_id": "80856c7b-b85c-42fe-af50-fec7a30649eb",
+          "user_id": "USR003",
+          "pattern_type": "repeated_trigger",
+          "title": "high stress repeatedly precedes cramps",
+          "explanation": "cramps recurs after high stress within 0 day(s) across sessions.",
+          "root_cause": "high stress",
+          "outcome": "cramps",
+          "sessions_involved": [
+            "USR003_S02",
+            "USR003_S05",
+            "USR003_S09"
+          ],
+          "confidence": "high",
+          "confidence_score": 0.82,
+          "confidence_justification": "support=3/4, effect=1.00, direction=0.75, median lag 0d.",
+          "reasoning_trace": {
+            "steps": [
+              "Matched repeated cause-before-symptom episodes in 0-7 day window.",
+              "Validated directionality against reverse-order mentions."
+            ],
+            "evidence": [
+              {
+                "session_id": "USR003_S02",
+                "timestamp": "2026-01-14T21:00:00",
+                "summary": "Immediate trigger: high stress -> cramps",
+                "contribution": "Gap 0 day(s), cause before symptom."
+              },
+              {
+                "session_id": "USR003_S05",
+                "timestamp": "2026-02-11T22:30:00",
+                "summary": "Immediate trigger: high stress -> cramps",
+                "contribution": "Gap 0 day(s), cause before symptom."
+              },
+              {
+                "session_id": "USR003_S09",
+                "timestamp": "2026-03-16T10:20:00",
+                "summary": "Immediate trigger: high stress -> cramps",
+                "contribution": "Gap 0 day(s), cause before symptom."
+              }
+            ],
+            "rejected_hypotheses": []
+          },
+          "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
+        }
+      ]
+    }
+  ]
+}
