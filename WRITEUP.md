@@ -1,78 +1,127 @@
-# Ask First Submission Writeup (1 page)
+# Ask First Submission Writeup
 
-## 1) Approach to the reasoning problem
+## 1) Problem framing and approach
 
-I treated the problem as a temporal causal mining task, not a keyword retrieval task.
-The pipeline has four stages:
+I framed this assignment as a temporal causal reasoning task across sessions, not a single-chat classification task.
 
-1. **Event extraction**  
-   Every session is converted to atomic events (symptoms, diet/lifestyle factors, interventions, improvements, worsening).  
-   I used a hybrid extractor:
-   - deterministic rules for high precision baseline
-   - optional LLM enrichment for messy language variants  
-   This keeps the system runnable without API keys while still allowing stronger semantic extraction when an LLM is available.
+Pipeline:
 
-2. **Timeline memory with temporal indexing**  
-   Events are attached to `week_index` and absolute timestamps.  
-   I preserve ordering and compute lag windows (0-7 days, 14-84 days, etc.) so the same event pair can mean different things depending on order and delay.
+1. Event extraction from each conversation into structured events (symptom, trigger, intervention, improvement, worsening).
+2. Timeline indexing (`week_index` + timestamp) per user.
+3. Dynamic candidate generation (cause->outcome pairs from extracted events, not a hardcoded answer key).
+4. Pattern detection + confidence scoring + evaluator against hidden references.
 
-3. **Dynamic pattern mining (no fixed pair list)**  
-   I generate candidate cause->outcome pairs directly from extracted events using event types, then detect:
-   - repeated triggers
-   - delayed effects
-   - intervention success
-   - progression chains
-   - multi-factor drivers
-   - root-cause chains  
-   Patterns are emitted only when directional and repeated temporal evidence is strong enough.
+This makes the system runnable in fully rule-based mode while still supporting optional LLM enrichment.
 
-4. **Confidence scoring with explicit rationale**  
-   Confidence score uses measurable factors:
-   - support/coverage
-   - effect size vs baseline
-   - directionality (reverse-order penalty)
-   - temporal consistency of lag
-   - contradiction penalty  
-   Each pattern stores score + one-line justification + evidence items + rejected hypotheses.
+LLM choice:
 
-I also added an **evaluation module** that compares predicted patterns against hidden references and reports precision/recall/F1 with match trace.
+- I used a hybrid strategy: deterministic rule extraction by default, with optional `openai/gpt-4.1-mini` via `litellm` for semantic enrichment.
+- Reason: internship evaluation needs reproducibility; rule-first guarantees stable outputs, while the LLM path improves recall on messy phrasing when enabled.
 
----
+## 2) Pattern recognition rules used and why
 
-## 2) Failure modes / where it can hallucinate confidently
+The engine uses explicit temporal rules so output is auditable.
 
-The main failure risk is **over-association from sparse data**:
-- If a symptom appears only a few times, co-occurrence can look causal by chance.
-- Multi-factor logic can incorrectly prioritize one driver when two factors usually co-occur.
-- Rule extraction can miss nuanced language when users describe causes indirectly.
+### Rule A: Directionality gate
 
-LLM mode adds another risk:
-- extractor may return plausible but unsupported labels if prompts are too permissive.
-- temporal details can be compressed or normalized incorrectly if timestamps are not enforced in prompt constraints.
+- Keep pairs where cause occurs before outcome.
+- Penalize/reject reverse-order evidence.
 
-The evaluator itself can over-credit or under-credit due to fuzzy text matching:
-- semantically correct patterns with different wording might score low.
-- surface-level wording overlap can score higher than true causal equivalence.
+Why: causal claims without order are unreliable.
 
----
+### Rule B: Support threshold across sessions
 
-## 3) What I would build with more time
+- Require repeated evidence, not one-off co-occurrence.
+- Measure support as matched episodes / eligible episodes.
 
-With more time, I would add:
+Why: reduces chance correlations from sparse notes.
 
-1. **Counterfactual checks**  
-   Explicitly test whether symptoms *do not* appear when a suspected trigger is absent (causal robustness).
+### Rule C: Lag-window compatibility
 
-2. **Per-pattern Bayesian uncertainty**  
-   Replace single deterministic score with uncertainty intervals and posterior updates as new sessions arrive.
+- Match by clinically plausible windows:
+- immediate (0-7 days), delayed (multi-week), and staged progression windows.
 
-3. **LLM reasoner second-pass**  
-   Keep deterministic candidate generation, then run a constrained LLM verifier that only chooses among evidence-backed hypotheses.
+Why: same pair can mean different things if lag changes.
 
-4. **Better evaluator**  
-   Add an LLM-judge mode with strict rubric (temporal direction, lag plausibility, intervention response) plus human-auditable scoring breakdown.
+### Rule D: Effect size vs baseline
 
-5. **Production observability**  
-   Track pattern drift, false-positive hotspots, and confidence calibration over time.
+- Compare outcome rate after suspected cause vs baseline outcome rate.
+- Stronger lift increases confidence.
 
-Overall, the current system is designed to be transparent, measurable, and easy to improve, while already meeting the assignment goals of temporal reasoning + confidence-backed pattern detection.
+Why: separates true trigger-like behavior from frequent background symptoms.
+
+### Rule E: Contradiction penalty
+
+- Downweight when outcome repeatedly appears without the cause or with opposite ordering.
+
+Why: prevents overconfident false positives.
+
+### Rule F: Pattern family-specific checks
+
+- `repeated_trigger`: repeated cause-before-outcome episodes.
+- `delayed_effect`: stable multi-week lag before onset.
+- `intervention_success`: intervention precedes outcome reduction.
+- `progression`: ordered downstream symptom sequence.
+- `multi_factor`: outcome linked to co-occurring drivers.
+- `dose_response`: stronger exposure links to stronger symptom frequency.
+
+Why: each family has a different causal signature, so one generic rule is not enough.
+
+## 3) Chunking and context strategy
+
+- I chunk long per-user timelines into overlapping windows (`max_events_per_chunk=8`, `overlap_events=2`).
+- Each chunk includes explicit temporal anchors (`week_index`, timestamps, week span).
+- Overlap avoids losing causal chains that cross chunk boundaries.
+- Final pattern inference merges evidence across chunks, so output remains user-level, not chunk-level.
+## 4) Which rules/families worked best (based on actual run)
+
+I re-ran the project on April 27, 2026:
+
+```bash
+python run.py --dataset data/askfirst_synthetic_dataset.json
+```
+
+Observed metrics:
+
+- Gold patterns: 8
+- Predicted patterns: 11
+- Matched patterns: 8
+- Precision: 0.727
+- Recall: 1.0
+- F1: 0.842
+
+Matched by pattern family:
+
+- `repeated_trigger`: 2 matched
+- `progression`: 2 matched
+- `delayed_effect`: 1 matched
+- `dose_response`: 1 matched
+- `intervention_success`: 1 matched
+- `multi_factor`: 1 matched
+
+Unmatched predictions:
+
+- `progression`: 1 false positive
+- `intervention_success`: 1 false positive
+- `repeated_trigger`: 1 false positive
+
+Interpretation:
+
+- Best precision on this run came from `delayed_effect`, `dose_response`, and `multi_factor` (1/1 each, though low sample size).
+- Most robust/high-coverage family is `repeated_trigger` because it matched multiple gold patterns with strong directionality evidence.
+- `progression` is useful but easier to over-predict, so it benefits most from stronger contradiction filtering.
+
+## 5) Failure modes
+
+- Sparse histories can create accidental co-occurrence patterns.
+- Multi-factor outcomes can over-attribute one cause when causes travel together.
+- Rule-only extraction can miss implicit language.
+- Evaluator similarity matching can under-credit semantically-correct but differently worded predictions.
+
+## 6) What I would improve next
+
+1. Add counterfactual checks (symptom absence when cause is absent).
+2. Add uncertainty bounds per pattern (instead of single-point confidence).
+3. Add stricter progression constraints to cut false positives.
+4. Add evaluator rubric for temporal correctness beyond string similarity.
+5. Add calibration tracking over time as new sessions arrive.

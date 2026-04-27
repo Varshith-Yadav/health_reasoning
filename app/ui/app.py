@@ -1,6 +1,19 @@
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
 import streamlit as st
+
+# Ensure package imports work no matter where Streamlit is launched from.
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+# When this file is loaded as module name "app", it shadows the app package.
+loaded_app_module = sys.modules.get("app")
+if loaded_app_module is not None and Path(getattr(loaded_app_module, "__file__", "")).resolve() == Path(__file__).resolve():
+    del sys.modules["app"]
 
 from app.core.loader import load_dataset
 from app.evaluation.evaluator import evaluate_predictions, load_gold_patterns, predictions_from_map

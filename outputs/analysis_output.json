@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-26T21:49:39.832116Z",
+  "generated_at": "2026-04-27T17:07:28.425764Z",
   "system_version": "2.0.0",
   "results": [
     {
@@ -8,7 +8,7 @@
       "total_patterns_found": 3,
       "patterns": [
         {
-          "pattern_id": "bce16298-af5e-4c4f-92be-f56eb4d16a19",
+          "pattern_id": "926affc8-d53d-4d98-9dad-d8f03f7fc94b",
           "user_id": "USR001",
           "pattern_type": "progression",
           "title": "high stress shows compounding symptom progression",
@@ -57,7 +57,7 @@
           "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
         },
         {
-          "pattern_id": "3d71d9db-92bc-4f71-a00e-5f1132b771ab",
+          "pattern_id": "9166e947-ed5b-40ef-9875-72729c6c8558",
           "user_id": "USR001",
           "pattern_type": "repeated_trigger",
           "title": "late eating repeatedly precedes stomach pain",
@@ -109,7 +109,7 @@
           "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
         },
         {
-          "pattern_id": "bdb15192-fe3d-4566-8f0e-6cbbf5a6d415",
+          "pattern_id": "69f1a1b1-0c88-43b6-8fc0-abbf8eea2491",
           "user_id": "USR001",
           "pattern_type": "repeated_trigger",
           "title": "low water intake repeatedly precedes headache",
@@ -154,7 +154,7 @@
       "total_patterns_found": 4,
       "patterns": [
         {
-          "pattern_id": "ee397779-657d-40f4-a02d-168f835b46c2",
+          "pattern_id": "ab28b6a7-c8f2-4f1c-9083-b41f39573ab7",
           "user_id": "USR002",
           "pattern_type": "dose_response",
           "title": "dairy intake shows dose-response with acne",
@@ -201,7 +201,7 @@
           "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
         },
         {
-          "pattern_id": "f487e329-643d-49da-92d9-370fc402a68e",
+          "pattern_id": "ff6ca794-c330-46d0-8648-b6bec9b60c0b",
           "user_id": "USR002",
           "pattern_type": "intervention_success",
           "title": "increased calories likely improved hair fall",
@@ -246,7 +246,7 @@
           "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
         },
         {
-          "pattern_id": "215fb395-3c3f-4414-868b-e4a9b31aa43a",
+          "pattern_id": "daadd7fe-adfc-4507-87e0-11b24c88c916",
           "user_id": "USR002",
           "pattern_type": "progression",
           "title": "calorie restriction shows compounding symptom progression",
@@ -295,7 +295,7 @@
           "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
         },
         {
-          "pattern_id": "9bf2779c-2174-4d62-bb53-71cefbc6017b",
+          "pattern_id": "5c1a7c3b-db31-4ce5-b7f2-e1db666cb7b6",
           "user_id": "USR002",
           "pattern_type": "delayed_effect",
           "title": "calorie restriction may cause delayed hair fall",
@@ -343,7 +343,7 @@
       "total_patterns_found": 4,
       "patterns": [
         {
-          "pattern_id": "53a80971-288e-45b3-9b0a-72458621ab4b",
+          "pattern_id": "5e0dd3f1-015a-4f63-a968-5159e3dc8a99",
           "user_id": "USR003",
           "pattern_type": "intervention_success",
           "title": "added protein lunch likely improved fatigue",
@@ -383,7 +383,7 @@
           "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
         },
         {
-          "pattern_id": "6be821fb-740f-429e-af2b-91d0e55cab25",
+          "pattern_id": "d889647b-2263-4f40-8658-e55188c12cd3",
           "user_id": "USR003",
           "pattern_type": "multi_factor",
           "title": "cramps has multi-factor pattern (sleep deprivation + high stress)",
@@ -435,7 +435,7 @@
           "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
         },
         {
-          "pattern_id": "47203eb7-af57-4e2d-9af6-7df746dbad85",
+          "pattern_id": "cd393775-dc04-4863-b443-ac6e5df29cd5",
           "user_id": "USR003",
           "pattern_type": "progression",
           "title": "late night screens shows compounding symptom progression",
@@ -484,7 +484,7 @@
           "recommended_next_step": "Continue timestamped tracking for 2-4 weeks to validate the trend."
         },
         {
-          "pattern_id": "80856c7b-b85c-42fe-af50-fec7a30649eb",
+          "pattern_id": "a9358d97-94ee-4a7c-8fb6-eea5aa62e3a1",
           "user_id": "USR003",
           "pattern_type": "repeated_trigger",
           "title": "high stress repeatedly precedes cramps",

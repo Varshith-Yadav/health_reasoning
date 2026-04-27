@@ -12,56 +12,56 @@
     {
       "gold_pattern_id": "P1",
       "gold_title": "Late night eating triggers stomach pain during work deadlines",
-      "prediction_id": "a10a4f65-6bc9-47b9-ae68-599ecc6291e9",
+      "prediction_id": "9166e947-ed5b-40ef-9875-72729c6c8558",
       "prediction_title": "late eating repeatedly precedes stomach pain",
       "similarity_score": 0.676
     },
     {
       "gold_pattern_id": "P2",
       "gold_title": "Afternoon headaches correlate with low water intake on high pressure work days",
-      "prediction_id": "ac22d7d2-fa08-46a8-be1a-794ae94b0a5f",
+      "prediction_id": "69f1a1b1-0c88-43b6-8fc0-abbf8eea2491",
       "prediction_title": "low water intake repeatedly precedes headache",
       "similarity_score": 0.478
     },
     {
       "gold_pattern_id": "P3",
       "gold_title": "Hair fall caused by severe calorie restriction starting January 8 manifesting 6 weeks later",
-      "prediction_id": "ac1986a5-9841-4c9b-9dd9-27d696108460",
+      "prediction_id": "5c1a7c3b-db31-4ce5-b7f2-e1db666cb7b6",
       "prediction_title": "calorie restriction may cause delayed hair fall",
       "similarity_score": 0.521
     },
     {
       "gold_pattern_id": "P4",
       "gold_title": "Dairy intake directly triggers cheek and jawline acne within 48-72 hours",
-      "prediction_id": "570172fd-4dfa-4a01-8e18-06915b208642",
+      "prediction_id": "ab28b6a7-c8f2-4f1c-9083-b41f39573ab7",
       "prediction_title": "dairy intake shows dose-response with acne",
       "similarity_score": 0.539
     },
     {
       "gold_pattern_id": "P5",
       "gold_title": "High carbohydrate lunch without protein causes consistent 2-4pm energy crash",
-      "prediction_id": "25f3f437-385e-473d-bb27-89d35b2cfdb3",
+      "prediction_id": "5e0dd3f1-015a-4f63-a968-5159e3dc8a99",
       "prediction_title": "added protein lunch likely improved fatigue",
       "similarity_score": 0.467
     },
     {
       "gold_pattern_id": "P6",
       "gold_title": "Severe period cramping correlates with elevated cortisol from stress and sleep deprivation",
-      "prediction_id": "928eca00-ddf4-4300-8839-efdb6649d2ab",
+      "prediction_id": "d889647b-2263-4f40-8658-e55188c12cd3",
       "prediction_title": "cramps has multi-factor pattern (sleep deprivation + high stress)",
       "similarity_score": 0.622
     },
     {
       "gold_pattern_id": "P7",
       "gold_title": "Late night screen use causing sleep deprivation driving multiple downstream symptoms",
-      "prediction_id": "854c92d4-71e0-4d1b-8e85-160fa6ef7aae",
+      "prediction_id": "cd393775-dc04-4863-b443-ac6e5df29cd5",
       "prediction_title": "late night screens shows compounding symptom progression",
       "similarity_score": 0.471
     },
     {
       "gold_pattern_id": "P8",
       "gold_title": "Severe calorie restriction causing compounding symptoms in sequence over 6 weeks",
-      "prediction_id": "f2c7491d-7437-4b69-aa2a-efea6e7383ae",
+      "prediction_id": "daadd7fe-adfc-4507-87e0-11b24c88c916",
       "prediction_title": "calorie restriction shows compounding symptom progression",
       "similarity_score": 0.471
     }
@@ -69,17 +69,17 @@
   "missed_gold_patterns": [],
   "unmatched_predictions": [
     {
-      "prediction_id": "0c8a8d4c-d955-48fb-9c30-f1c9f8d40848",
+      "prediction_id": "926affc8-d53d-4d98-9dad-d8f03f7fc94b",
       "prediction_title": "high stress shows compounding symptom progression",
       "user_id": "USR001"
     },
     {
-      "prediction_id": "13304dc3-c80a-41ec-a825-86a954da1c97",
+      "prediction_id": "ff6ca794-c330-46d0-8648-b6bec9b60c0b",
       "prediction_title": "increased calories likely improved hair fall",
       "user_id": "USR002"
     },
     {
-      "prediction_id": "cc004ea7-07c4-4c56-bafb-6466e0a89f81",
+      "prediction_id": "a9358d97-94ee-4a7c-8fb6-eea5aa62e3a1",
       "prediction_title": "high stress repeatedly precedes cramps",
       "user_id": "USR003"
     }
